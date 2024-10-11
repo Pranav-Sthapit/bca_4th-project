@@ -64,6 +64,8 @@ $sql=$conn->prepare("SELECT registered_email from account_holder where user_id=?
 $sql->bind_param('i',$user_id);
 $sql->execute();
 $result=$sql->get_result();
+$sql->close();
+$conn->close();
 if($result->num_rows==1)
 {
    $row=$result->fetch_assoc();
@@ -87,6 +89,8 @@ function changePassword($user_id,$password){
     {
         echo "password changed successfully";
     }
+    $sql->close();
+    $conn->close();
 }
 function changePin($user_id,$pin){
     $conn=new mysqli('localhost','root','','swift_bank');
@@ -100,5 +104,7 @@ function changePin($user_id,$pin){
     {
         echo "pin changed successfully";
     }
+    $sql->close();
+    $conn->close();
 }
 ?>

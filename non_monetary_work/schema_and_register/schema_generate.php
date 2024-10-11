@@ -44,22 +44,22 @@ create table account(
     foreign key (citizenship_no) references account_holder(citizenship_no)
 );
 create table loan(
-	loan_id numeric primary key,
+	loan_id int AUTO_INCREMENT primary key ,
     amount_due numeric,check(amount_due<=25000),
     interest numeric,
     status varchar(15),
-    user_id numeric(10),
-    acc_no numeric(15),
+    user_id numeric(10) unique,
+    acc_no numeric(15) unique,
     foreign key(user_id) references user(user_id),
     foreign key (acc_no)references account(acc_no)
 );
-create table transaction(
+    CREATE table transaction(
     date_of_transaction date,
     amount numeric,
     receiver_id numeric(10),
     receiver_acc_no numeric(15),
     transaction_type varchar(15),
-    user_id numeric(15),
+    user_id numeric(10),
     foreign key (user_id) references user(user_id),
     foreign key (receiver_id) references user(user_id),
     foreign key (receiver_acc_no) references account(acc_no)
@@ -70,4 +70,5 @@ if($conn->multi_query($sql2))
 {
     echo "done insert creation";
 }
+$conn->close();
 ?>

@@ -21,4 +21,6 @@
     }else{
         echo "response not sent";
     }
+    $sql->close();
+    $conn->close();
 ?>
