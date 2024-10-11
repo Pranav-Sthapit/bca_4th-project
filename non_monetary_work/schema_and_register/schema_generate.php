@@ -63,7 +63,18 @@ create table loan(
     foreign key (user_id) references user(user_id),
     foreign key (receiver_id) references user(user_id),
     foreign key (receiver_acc_no) references account(acc_no)
-);";
+);      
+    CREATE table fixed_deposit(
+    fd_id int AUTO_INCREMENT primary key,
+    amount numeric,CHECK (amount>=10000),
+    interest numeric,
+    date_created date,
+    date_matured date,
+    user_id numeric(10) unique,
+    acc_no numeric(15) unique,
+    foreign key(user_id) references user(user_id),
+    foreign key (acc_no)references account(acc_no)
+    );";
 $sql2="INSERT into account_holder values('pranav','sthapit','pranavsthapit17@gmail.com',1111,'ktm','2000-1-1',null);
 insert into account values(12345,2000,'2020-1-1',1111,null);";
 if($conn->multi_query($sql2))
