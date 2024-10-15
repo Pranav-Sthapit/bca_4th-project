@@ -6,16 +6,21 @@ include '../balanceAlter.php';
 
 
 //get user inputs
-$user_id=9860325051;
-$amount=200;
-$receiver_id=9860325050;
+$user_id=9860325050;
+$amount=800;
+$receiver_id=9860325051;
 $type="transfer";
 //end
 
 $receiver_acc_no=getAccNo($receiver_id);
+
 if($receiver_acc_no==-1){
     echo "no account to transfer";
 }else{
+    //pin enter in form
+include '../pincheck.php';
+//end
+if($pinValid==1){ //if pin is valid from the included document then do the following
     try{
         deductFromAccount($user_id,$amount);
         addToAccount($receiver_id,$amount);
@@ -24,6 +29,7 @@ if($receiver_acc_no==-1){
         }catch( exception $e){
             echo "insufficient minimum balance for transfer <br>1000 must be left";
         }
+    }
 }
 
 
