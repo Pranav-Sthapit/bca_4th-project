@@ -9,7 +9,10 @@ include '../transactionTableFunction.php';
     //end
     $acc_no=getAccNo($user_id);
     
-    
+     //pin enter in form
+include '../pincheck.php';
+//end
+if($pinValid==1){ //if pin is valid from the included document then do the following
     try{
         deductFromAccount($user_id,$amount);
         putInTransaction($amount,null,null,"wallet load",$user_id);
@@ -17,5 +20,6 @@ include '../transactionTableFunction.php';
     }catch(exception $e){
         die("unable to load wallet minimum balance of 1000 must be maintained");
     }
+}
 
 ?>
