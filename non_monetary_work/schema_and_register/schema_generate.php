@@ -35,7 +35,7 @@ create table account_holder(
     foreign key(user_id) references user(user_id)
 );
 create table account(
-	acc_no numeric(15) primary key,
+	acc_no numeric(11) primary key,
     balance numeric not null ,check (balance>1000),
     date_created date not null,
     citizenship_no numeric(10),
@@ -49,7 +49,7 @@ create table loan(
     interest numeric,
     status varchar(15),
     user_id numeric(10) unique,
-    acc_no numeric(15) unique,
+    acc_no numeric(11) unique,
     foreign key(user_id) references user(user_id),
     foreign key (acc_no)references account(acc_no)
 );
@@ -57,7 +57,7 @@ create table loan(
     date_of_transaction date,
     amount numeric,
     receiver_id numeric(10),
-    receiver_acc_no numeric(15),
+    receiver_acc_no numeric(11),
     transaction_type varchar(15),
     user_id numeric(10),
     foreign key (user_id) references user(user_id),
@@ -71,7 +71,7 @@ create table loan(
     date_created date,
     date_matured date,
     user_id numeric(10) unique,
-    acc_no numeric(15) unique,
+    acc_no numeric(11) unique,
     foreign key(user_id) references user(user_id),
     foreign key (acc_no)references account(acc_no)
     );";
@@ -83,3 +83,7 @@ if($conn->multi_query($sql2))
 }
 $conn->close();
 ?>
+
+pending operations that will be completed when the structure is redesigned fortesting
+1. account no will be 11 in all tables
+2. the amount/balance will be two decimal places for account and transaction and rest will be whole nums.

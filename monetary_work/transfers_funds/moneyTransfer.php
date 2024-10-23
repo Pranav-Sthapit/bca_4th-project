@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include '../getAccNo.php';
 include '../transactionTableFunction.php';
 include '../balanceAlter.php';
@@ -6,9 +8,9 @@ include '../balanceAlter.php';
 
 
 //get user inputs
-$user_id=9860325050;
-$amount=800;
-$receiver_id=9860325051;
+$user_id=9860325051;
+$amount=1000;
+$receiver_id=9860325050;
 $type="transfer";
 //end
 
@@ -25,7 +27,8 @@ if($pinValid==1){ //if pin is valid from the included document then do the follo
         deductFromAccount($user_id,$amount);
         addToAccount($receiver_id,$amount);
         putInTransaction($amount,$receiver_id,$receiver_acc_no,$type,$user_id);
-        echo "transfer success";
+        $_SESSION["result_message"]="transfer success";
+        header("Location:../messageBox.php");
         }catch( exception $e){
             echo "insufficient minimum balance for transfer <br>1000 must be left";
         }

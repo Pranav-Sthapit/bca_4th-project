@@ -8,6 +8,7 @@
     $sql=$conn->prepare("UPDATE account set balance=balance-? where user_id=?");
     $sql->bind_param('ii',$amount,$user_id);
     $sql->execute();
+    $conn->close();
 }
 
 function addToAccount($user_id,$amount){
@@ -19,5 +20,6 @@ function addToAccount($user_id,$amount){
     $sql=$conn->prepare("UPDATE account set balance=balance+? where user_id=?");
     $sql->bind_param('ii',$amount,$user_id);
     $sql->execute();
+    $conn->close();
 }
 ?>

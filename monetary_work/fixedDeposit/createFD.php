@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../getAccNo.php';
 include '../balanceAlter.php';
 include '../transactionTableFunction.php';
@@ -12,6 +13,7 @@ function createFD($amount,$interest,$date_of_maturity,$user_id,$acc_no){
     $sql=$conn->prepare("INSERT INTO fixed_deposit(amount,interest,date_created,date_matured,user_id,acc_no) values (?,?,?,?,?,?)");
     $sql->bind_param('iissii',$amount,$interest,$date,$date_of_maturity,$user_id,$acc_no);
     $sql->execute();
+    $conn->close();
 }
 
     //input from user
@@ -22,7 +24,8 @@ function createFD($amount,$interest,$date_of_maturity,$user_id,$acc_no){
     $interest=$amount*10/100;
     $acc_no=getAccNo($user_id);
     
-    
+    include '../pincheck.php';
+    if($pinValid==1){
     try{
         deductFromAccount($user_id,$amount);
     }catch(exception $e){
@@ -31,10 +34,13 @@ function createFD($amount,$interest,$date_of_maturity,$user_id,$acc_no){
     try{
         createFD($amount,$interest,$date_of_maturity,$user_id,$acc_no);
         putInTransaction($amount,null,null,"fixed deposit",$user_id);
-        echo "fd created";
+        $_SESSION["result_message"]="fd created";
+        header("Location:../messageBox.php");
     }catch(exception $e){
         addToAccount($user_id,$amount);
-        die("cannot create more than 1 fd at a time");
+        $_SESSION["result_message"]="cannot create more than 1 fd at a time";
+        header("Location:../messageBox.php");
     }
+}
 
 ?>
