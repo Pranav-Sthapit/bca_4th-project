@@ -22,8 +22,14 @@
         }
         
     }
+    $username="";$password="";
     //logic for admin input
-    $username="pranav";
-    $password="pranav";
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+        $username=$_POST["username"];
+        $password=$_POST["password"];
+    }
+   // $username="pranav";
+    //$password="pranav";
     //end logic
     loginValidationAdmin($username,$password);
