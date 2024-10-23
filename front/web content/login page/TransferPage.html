@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Transaction</title>
+    <link rel="stylesheet" href="chill.css">
+    <script src="../script.js"></script>
+    <script>
+        function validate()
+        {
+            pin=document.confirm.Pin.value;
+            return pinValidate(pin);
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation bar with Swift logo and text -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="swift-logo.png" alt="Swift Logo">
+                <span>Swift</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main container for Confirm Transaction form -->
+    <div class="container">
+        <div class="fund-transfer-box">
+            <h2>Confirm Transaction</h2>
+            <form action="#" name="confirm" method="post" onsubmit="return validate()">
+                <div class="input-box">
+                    <label for="enter-code">Enter 4 digit pin code</label>
+                    <input type="text" id="enter-code" name="Pin" placeholder="Enter exactly 4 digits pin eg: 1234" required>
+                </div>
+
+                
+
+                <button type="submit" class="btn continue">Continue</button>
+                <button type="button" class="btn cancel">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

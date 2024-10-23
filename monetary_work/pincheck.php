@@ -40,13 +40,14 @@
 
                 
 
-                <button type="submit" class="btn continue">Continue</button>
+                <button type="submit" name="pin-btn" class="btn continue">Continue</button>
                 <button type="button" class="btn cancel">Cancel</button>
             </form>
         </div>
     </div>
     <!--pin logic test-->
     <?php
+    if(isset($_POST["pin-btn"])){
     if($_SERVER["REQUEST_METHOD"]=="POST")
     {   
         $pin=$_POST["pin"];
@@ -65,6 +66,7 @@
         header("Location:../messageBox.php");
     }
     }
+}
     ?>
 </body>
 </html>

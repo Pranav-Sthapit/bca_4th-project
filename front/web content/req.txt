@@ -1,0 +1,25 @@
+userid=10 digit num
+pin = 4 digit num
+password= 8
+account num= 11digit
+
+login page -> user id password 
+register page-> user id password pin ac num. button => register onclick=>validate
+forgot password -> user id (check), new , confirm new, submit
+dashboard -> user id, account num, balance, transactions, logout
+transaction page -> user id, receiver id, amount, remarks, submit
+transfer page ->  pin only, payment
+transfer history page -> user id, account num, amount, date, time, type, remarks,
+profile page -> user id, account num, name, email, phone, address, submit
+
+fixed deposit -> amount, date of maturity, proceed
+loan -> amount, interest rate, tenure, proceed
+loan history -> user id, account num, amount, interest rate, tenure, date, status
+
+view fixed deposit -> 
+view loan -> same fd view 
+apply loan -> amount 
+approve loan -> alter database
+loan cancel page-> cancel button (unapproved loan only cancel) else display -> Too late! loan already approved.
+loan pay -> user pay full loan with interest, pay button
+

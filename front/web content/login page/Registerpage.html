@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../script.js"></script>
+    <script>
+        function validate()
+        {  
+            userId=document.register.UserId.value;
+            password=document.register.Password.value;
+            accNo=document.register.AccNo.value;
+            pin=document.register.Pin.value;
+            
+            if(userIdValidate(userId) && passwordValidate(password) && accountNumberValidate(accNo) && pinValidate(pin)){
+                return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation bar with Swift logo and text -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="swift-logo.png" alt="Swift Logo">
+                <span>Swift</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main container for register form -->
+    <div class="container">
+        <div class="background-box"></div>
+        <div class="login-box">
+            <div class="logo">
+                <img src="swift-logo.png" alt="Swift Logo">
+            </div>
+            <h2>SignUp</h2>
+            <p>Sign up for new account</p>
+            <form action="#" name="register" method="post" onsubmit="return validate()">
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="UserId" placeholder="UserId" required>
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="Password" placeholder="Password" required>
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="AccNo" placeholder="Account No." required>
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="Pin" placeholder="Pin" required>
+                </div> 
+                <button type="submit" class="btn">Register</button>
+               
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>

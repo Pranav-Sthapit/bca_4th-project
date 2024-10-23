@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="otp.css">
+</head>
+<body>
+    <div class="otp">
+        <h2>Enter OTP</h2>
+        <form name="otp_form" method="post" action="inputintobase.php" onsubmit="return validate()">
+            <input type="text" name="otp_input" class="otp_input" placeholder="enter 6 digit OTP just sent" maxlength="6">
+            <input type="submit" class="submit" value="Submit">
+        
+        <a href="#" class="resend" onclick="sendotp()">Resend OTP</a></form>
+    </div>
+</body>
+</html>
+

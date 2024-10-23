@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../script.js"></script>
+    <script>
+        function validate()
+        {   
+            userId=document.login.UserId.value;
+            password=document.login.Password.value;
+            if(userIdValidate(userId) && passwordValidate(password)){
+                return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation bar with Swift logo and text -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="swift-logo.png" alt="Swift Logo">
+                <span>Swift</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main container for login form -->
+    <div class="container">
+        <div class="background-box"></div>
+        <div class="login-box">
+            <div class="logo">
+                <img src="swift-logo.png" alt="Swift Logo">
+            </div>
+            <h2>Login</h2>
+            <p>Sign in to your account</p>
+            <form action="#" name="login" method="post" onsubmit="return validate()">
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="UserId" placeholder="UserId" required>
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="Password" placeholder="Password"  required >
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <a href="#" class="forgot">Forgot password? Click to reset</a>
+               
+                <button  class="btn" onclick="window.location.href='https://www.youtube.com/'">Register / Activate new account!! </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

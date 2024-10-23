@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply For Loan</title>
+    <link rel="stylesheet" href="chill.css">
+</head>
+<body>
+    <!-- Navigation bar with Swift logo and text -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="swift-logo.png" alt="Swift Logo">
+                <span>Swift</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main container for Apply For Loan form -->
+    <div class="container">
+        <div class="fund-transfer-box">
+            <h2>Apply For Loan</h2>
+            <form action="#">
+                
+                <div class="input-box">
+                    <label for="amount">Amount</label>
+                    <input type="number" min="10000" id="amount" name="amount" placeholder="Amount" required>
+                </div>
+                <div class="input-box">
+                    <label for="interest">Interest Rate</label>
+                    <input type="text"  id="amount" name="amount" value="13%" readonly>
+                </div>
+
+                <div class="input-box">
+                    <label for="tenure">Tenure</label>
+                    <input type="date" id="tenure" name="tenure" placeholder="10-07-1990" required>
+                </div>
+
+                <button type="submit" class="btn continue">Proceed</button>
+                <button type="button" class="btn cancel">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

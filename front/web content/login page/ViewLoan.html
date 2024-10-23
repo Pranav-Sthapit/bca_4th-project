@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Loan</title>
+    <link rel="stylesheet" href="chill.css">
+</head>
+<body>
+    <!-- Navigation bar with Swift logo and text -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="swift-logo.png" alt="Swift Logo">
+                <span>Swift</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main container for View Loan form -->
+    <div class="container">
+        <div class="fund-transfer-box">
+            <h2>View Loan</h2>
+            <form action="#">
+                <div class="input-box">
+                    <label for="UserId">User Id</label>
+                    <input type="text" pattern="[0-9]{11}" id="UserId" name="receiver-bank-account" placeholder="UserId (11 digits wala)" required>
+                </div>
+                <div class="input-box">
+                    <label for="amount">Anount to be paid</label>
+                    <input type="number" min="10" id="amount" name="receiver-bank-account" placeholder="eg: 10" required>
+                </div>
+                <div class="input-box">
+                    <label for="loan-status">Loan Status</label>
+                    <input type="text" id="loan-status" name="receiver-bank-account" value="Your Current Loan Status" readonly>
+                </div>
+
+                
+
+                
+                <button type="button" class="btn continue">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
