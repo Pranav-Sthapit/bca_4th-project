@@ -13,7 +13,7 @@
         echo $_SESSION["OTP"];
         echo $otp_inputted;
     }else{
-        header("Location:passwordandpinform.html");
+        header("Location:passwordform.html");
         exit();
         //send to a form  
     }

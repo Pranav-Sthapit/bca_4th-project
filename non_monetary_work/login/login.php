@@ -20,8 +20,12 @@
         $conn->close();
     }
     //logic for user input
-    $user_id=9860325051;
-    $password="pranav";
+    $user_id;$password;
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+        $user_id=$_POST["userId"];
+        $password=$_POST["password"];
+    }
     //end logic
     loginValidation($user_id,$password);
 

@@ -27,6 +27,7 @@ if($result->num_rows>0)
 }
 else{
     echo "you dont have account";
+    return -1;//donot execute if no account
 }
 //selecting the email via citizzenship_no
 $sql2=$conn->prepare("SELECT registered_email from account_holder where citizenship_no=?");
